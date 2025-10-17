@@ -509,6 +509,27 @@ body {
     }
 }
 
+/* Navigation Link Active State */
+.nav-link.active {
+    color: var(--primary-color) !important;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.nav-link.active i {
+    color: var(--primary-color) !important;
+}
+
 /* Print styles */
 @media print {
     .no-print {

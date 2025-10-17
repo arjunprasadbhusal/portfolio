@@ -143,14 +143,13 @@
     }
 
     .professional-card {
-      background: rgba(30, 41, 59, 0.8);
-      backdrop-filter: blur(20px);
+      background: linear-gradient(145deg, var(--card-bg) 0%, #334155 100%);
       border: 1px solid var(--border-color);
+      backdrop-filter: blur(20px);
       transition: all 0.4s ease;
     }
 
     .professional-card:hover {
-      background: rgba(30, 41, 59, 0.9);
       border-color: var(--primary-color);
       box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
     }
@@ -258,20 +257,19 @@
           </div>
         </div>
         <div class="hidden lg:flex items-center space-x-1">
-          <a href="index.html" class="nav-link active transition-all duration-300">
+          <a href="index.html" class="nav-link transition-all duration-300" data-page="index">
             <i class="fas fa-home mr-2"></i>Home
           </a>
-          <a href="about.html" class="nav-link transition-all duration-300">
+          <a href="about.html" class="nav-link transition-all duration-300" data-page="about">
             <i class="fas fa-user mr-2"></i>About
           </a>
-          <a href="services.html" class="nav-link transition-all duration-300">
+          <a href="services.html" class="nav-link transition-all duration-300" data-page="services">
             <i class="fas fa-cogs mr-2"></i>Services
           </a>
-          <a href="resume.html" class="nav-link transition-all duration-300">
+          <a href="resume.html" class="nav-link transition-all duration-300" data-page="resume">
             <i class="fas fa-file-alt mr-2"></i>Resume
           </a>
-         
-          <a href="contact.html" class="nav-link transition-all duration-300">
+          <a href="contact.html" class="nav-link active transition-all duration-300" data-page="contact">
             <i class="fas fa-envelope mr-2"></i>Contact
           </a>
         </div>
@@ -285,26 +283,25 @@
       </div>
       <div id="mobileMenu" class="lg:hidden hidden absolute top-full left-0 right-0 professional-card m-4 rounded-2xl backdrop-blur-lg border border-gray-700">
         <div class="p-6 space-y-2">
-          <a href="index.html" class="nav-link active flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group border-l-4 border-[var(--primary-color)]">
-            <i class="fas fa-home text-[var(--primary-color)]"></i>
-            <span class="font-medium text-[var(--primary-color)]">Home</span>
+          <a href="index.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="index">
+            <i class="fas fa-home group-hover:text-[var(--primary-color)] transition-colors"></i>
+            <span class="font-medium">Home</span>
           </a>
-          <a href="about.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="about.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="about">
             <i class="fas fa-user group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">About</span>
           </a>
-          <a href="services.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="services.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="services">
             <i class="fas fa-cogs group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Services</span>
           </a>
-          <a href="resume.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="resume.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="resume">
             <i class="fas fa-file-alt group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Resume</span>
           </a>
-        
-          <a href="contact.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
-            <i class="fas fa-envelope group-hover:text-[var(--primary-color)] transition-colors"></i>
-            <span class="font-medium">Contact</span>
+          <a href="contact.html" class="nav-link active flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group border-l-4 border-[var(--primary-color)]" data-page="contact">
+            <i class="fas fa-envelope text-[var(--primary-color)]"></i>
+            <span class="font-medium text-[var(--primary-color)]">Contact</span>
           </a>
         </div>
       </div>
@@ -687,6 +684,7 @@
     const line1 = document.getElementById('line1');
     const line2 = document.getElementById('line2');
     const line3 = document.getElementById('line3');
+    const menuLinks = mobileMenu.querySelectorAll('a');
     let isMenuOpen = false;
 
     mobileMenuBtn.addEventListener('click', () => {
@@ -703,6 +701,52 @@
         line2.style.opacity = '1';
         line3.style.transform = 'rotate(0deg) translate(0px, 0px)';
       }
+    });
+
+    // Handle menu link clicks with visual feedback
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Add visual feedback - remove active states from all links
+        menuLinks.forEach(l => {
+          l.classList.remove('active');
+          l.classList.remove('bg-gray-800/50', 'bg-gray-800/30');
+          l.style.borderLeftColor = 'transparent';
+          l.style.backgroundColor = '';
+          const icon = l.querySelector('i');
+          const span = l.querySelector('span');
+          if (icon) {
+            icon.classList.remove('text-[var(--primary-color)]');
+            icon.style.color = '';
+          }
+          if (span) {
+            span.classList.remove('text-[var(--primary-color)]');
+            span.style.color = '';
+          }
+        });
+        
+        // Highlight clicked link with background
+        link.classList.add('active');
+        link.style.backgroundColor = 'rgba(55, 65, 81, 0.5)'; // bg-gray-700/50
+        link.style.borderLeftColor = 'var(--primary-color)';
+        const icon = link.querySelector('i');
+        const span = link.querySelector('span');
+        if (icon) {
+          icon.style.color = 'var(--primary-color)';
+        }
+        if (span) {
+          span.style.color = 'var(--primary-color)';
+        }
+        
+        // Close menu after short delay
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          isMenuOpen = false;
+          // Reset hamburger animation
+          line1.style.transform = 'rotate(0deg) translate(0px, 0px)';
+          line2.style.opacity = '1';
+          line3.style.transform = 'rotate(0deg) translate(0px, 0px)';
+        }, 250);
+      });
     });
 
     // Intersection Observer for fade-in-up animations

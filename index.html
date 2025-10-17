@@ -368,20 +368,19 @@
           </div>
         </div>
         <div class="hidden lg:flex items-center space-x-1">
-          <a href="index.html" class="nav-link active transition-all duration-300">
+          <a href="index.html" class="nav-link active transition-all duration-300" data-page="index">
             <i class="fas fa-home mr-2"></i>Home
           </a>
-          <a href="about.html" class="nav-link transition-all duration-300">
+          <a href="about.html" class="nav-link transition-all duration-300" data-page="about">
             <i class="fas fa-user mr-2"></i>About
           </a>
-          <a href="services.html" class="nav-link transition-all duration-300">
+          <a href="services.html" class="nav-link transition-all duration-300" data-page="services">
             <i class="fas fa-cogs mr-2"></i>Services
           </a>
-          <a href="resume.html" class="nav-link transition-all duration-300">
+          <a href="resume.html" class="nav-link transition-all duration-300" data-page="resume">
             <i class="fas fa-file-alt mr-2"></i>Resume
           </a>
-         
-          <a href="contact.html" class="nav-link transition-all duration-300">
+          <a href="contact.html" class="nav-link transition-all duration-300" data-page="contact">
             <i class="fas fa-envelope mr-2"></i>Contact
           </a>
         </div>
@@ -395,24 +394,23 @@
       </div>
       <div id="mobileMenu" class="lg:hidden hidden absolute top-full left-0 right-0 professional-card m-4 rounded-2xl backdrop-blur-lg border border-gray-700">
         <div class="p-6 space-y-2">
-          <a href="index.html" class="nav-link active flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group border-l-4 border-[var(--primary-color)]">
+          <a href="index.html" class="nav-link active flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group border-l-4 border-[var(--primary-color)]" data-page="index">
             <i class="fas fa-home text-[var(--primary-color)]"></i>
             <span class="font-medium text-[var(--primary-color)]">Home</span>
           </a>
-          <a href="about.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="about.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="about">
             <i class="fas fa-user group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">About</span>
           </a>
-          <a href="services.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="services.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="services">
             <i class="fas fa-cogs group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Services</span>
           </a>
-          <a href="resume.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="resume.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="resume">
             <i class="fas fa-file-alt group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Resume</span>
           </a>
-        
-          <a href="contact.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="contact.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="contact">
             <i class="fas fa-envelope group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Contact</span>
           </a>
@@ -590,83 +588,163 @@
         </p>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div class="space-y-8">
-          <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-            <i class="fas fa-code text-[var(--primary-color)] mr-3"></i>
+        <!-- Technical Skills with Circular Progress -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] flex items-center justify-center mr-4 shadow-lg">
+              <i class="fas fa-code text-white text-lg"></i>
+            </div>
             Technical Skills
           </h3>
-          <div class="space-y-6">
-            <div class="skill-item">
-              <div class="flex justify-between mb-2">
-                <span class="text-white font-medium">Laravel & PHP</span>
-                <span class="text-[var(--primary-color)] font-bold">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-percentage="90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="flex justify-between mb-2">
-                <span class="text-white font-medium">JavaScript & React</span>
-                <span class="text-[var(--primary-color)] font-bold">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-percentage="85%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="flex justify-between mb-2">
-                <span class="text-white font-medium">HTML5 & CSS3</span>
-                <span class="text-[var(--primary-color)] font-bold">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-percentage="95%"></div>
+          
+          <!-- Circular Skill Cards -->
+          <div class="grid grid-cols-2 gap-5">
+            <!-- Laravel & PHP -->
+            <div class="skill-card group relative bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-6 rounded-2xl border border-gray-700/50 hover:border-[var(--primary-color)]/60 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[var(--primary-color)]/30 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <i class="fab fa-laravel text-xl text-[var(--primary-color)] group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold text-base">Laravel & PHP</h4>
+                  </div>
+                  <span class="text-[var(--primary-color)] font-black text-lg">90%</span>
+                </div>
+                <div class="w-full bg-gray-700/50 rounded-full h-3 overflow-hidden">
+                  <div class="progress-bar h-full bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-percentage="90"></div>
+                </div>
+                <p class="text-gray-400 text-xs mt-2">Backend Development</p>
               </div>
             </div>
-            <div class="skill-item">
-              <div class="flex justify-between mb-2">
-                <span class="text-white font-medium">MySQL & Database</span>
-                <span class="text-[var(--primary-color)] font-bold">80%</span>
+
+            <!-- JavaScript & React -->
+            <div class="skill-card group relative bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-6 rounded-2xl border border-gray-700/50 hover:border-[var(--secondary-color)]/60 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[var(--secondary-color)]/30 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-[var(--secondary-color)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <i class="fab fa-react text-xl text-[var(--secondary-color)] group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold text-base">React & JS</h4>
+                  </div>
+                  <span class="text-[var(--secondary-color)] font-black text-lg">85%</span>
+                </div>
+                <div class="w-full bg-gray-700/50 rounded-full h-3 overflow-hidden">
+                  <div class="progress-bar h-full bg-gradient-to-r from-[var(--secondary-color)] to-[var(--primary-color)] rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-percentage="85"></div>
+                </div>
+                <p class="text-gray-400 text-xs mt-2">Frontend Development</p>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-percentage="80%"></div>
+            </div>
+
+            <!-- HTML5 & CSS3 -->
+            <div class="skill-card group relative bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-6 rounded-2xl border border-gray-700/50 hover:border-orange-500/60 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <i class="fab fa-html5 text-xl text-orange-500 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold text-base">HTML & CSS</h4>
+                  </div>
+                  <span class="text-orange-500 font-black text-lg">95%</span>
+                </div>
+                <div class="w-full bg-gray-700/50 rounded-full h-3 overflow-hidden">
+                  <div class="progress-bar h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-percentage="95"></div>
+                </div>
+                <p class="text-gray-400 text-xs mt-2">Web Fundamentals</p>
+              </div>
+            </div>
+
+            <!-- MySQL & Database -->
+            <div class="skill-card group relative bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-6 rounded-2xl border border-gray-700/50 hover:border-blue-500/60 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-blue-500/30 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-database text-xl text-blue-500 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-white font-bold text-base">MySQL</h4>
+                  </div>
+                  <span class="text-blue-500 font-black text-lg">80%</span>
+                </div>
+                <div class="w-full bg-gray-700/50 rounded-full h-3 overflow-hidden">
+                  <div class="progress-bar h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-percentage="80"></div>
+                </div>
+                <p class="text-gray-400 text-xs mt-2">Data Management</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="space-y-8">
-          <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-            <i class="fas fa-user-tie text-[var(--primary-color)] mr-3"></i>
+
+        <!-- Professional Skills with Circular Icons -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--secondary-color)] to-[var(--primary-color)] flex items-center justify-center mr-4 shadow-lg">
+              <i class="fas fa-user-tie text-white text-lg"></i>
+            </div>
             Professional Skills
           </h3>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="professional-skill-card bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-6 rounded-xl border border-gray-700 hover:border-[var(--primary-color)]/30 transition-all duration-300 text-center group">
-              <div class="text-4xl text-[var(--primary-color)] mb-4 group-hover:scale-110 transition-transform duration-300">
-                <i class="fas fa-lightbulb"></i>
+          
+          <div class="grid grid-cols-2 gap-5">
+            <!-- Problem Solving -->
+            <div class="professional-skill-card group relative bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-5 rounded-2xl border border-gray-700/50 hover:border-[var(--primary-color)]/60 transition-all duration-300 text-center hover:-translate-y-3 hover:shadow-2xl hover:shadow-[var(--primary-color)]/30 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="relative z-10">
+                <div class="relative mb-3">
+                  <div class="absolute inset-0 bg-[var(--primary-color)]/10 rounded-full blur-lg group-hover:blur-xl transition-all"></div>
+                  <div class="relative w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-xl">
+                    <i class="fas fa-lightbulb text-2xl text-white"></i>
+                  </div>
+                </div>
+                <h4 class="text-white font-bold text-sm mb-1">Problem Solving</h4>
+                <p class="text-gray-400 text-xs">Creative solutions</p>
               </div>
-              <h4 class="text-white font-bold mb-2">Problem Solving</h4>
-              <p class="text-gray-400 text-sm">Creative solutions to complex challenges</p>
             </div>
-            <div class="professional-skill-card bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-6 rounded-xl border border-gray-700 hover:border-[var(--primary-color)]/30 transition-all duration-300 text-center group">
-              <div class="text-4xl text-[var(--primary-color)] mb-4 group-hover:scale-110 transition-transform duration-300">
-                <i class="fas fa-users"></i>
+
+            <!-- Team Work -->
+            <div class="professional-skill-card group relative bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-5 rounded-2xl border border-gray-700/50 hover:border-[var(--secondary-color)]/60 transition-all duration-300 text-center hover:-translate-y-3 hover:shadow-2xl hover:shadow-[var(--secondary-color)]/30 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-[var(--secondary-color)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="relative z-10">
+                <div class="relative mb-3">
+                  <div class="absolute inset-0 bg-[var(--secondary-color)]/10 rounded-full blur-lg group-hover:blur-xl transition-all"></div>
+                  <div class="relative w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[var(--secondary-color)] to-[var(--primary-color)] flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-xl">
+                    <i class="fas fa-users text-2xl text-white"></i>
+                  </div>
+                </div>
+                <h4 class="text-white font-bold text-sm mb-1">Team Work</h4>
+                <p class="text-gray-400 text-xs">Collaborative approach</p>
               </div>
-              <h4 class="text-white font-bold mb-2">Team Work</h4>
-              <p class="text-gray-400 text-sm">Collaborative development approach</p>
             </div>
-            <div class="professional-skill-card bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-6 rounded-xl border border-gray-700 hover:border-[var(--primary-color)]/30 transition-all duration-300 text-center group">
-              <div class="text-4xl text-[var(--primary-color)] mb-4 group-hover:scale-110 transition-transform duration-300">
-                <i class="fas fa-clock"></i>
+
+            <!-- Time Management -->
+            <div class="professional-skill-card group relative bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-5 rounded-2xl border border-gray-700/50 hover:border-purple-500/60 transition-all duration-300 text-center hover:-translate-y-3 hover:shadow-2xl hover:shadow-purple-500/30 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="relative z-10">
+                <div class="relative mb-3">
+                  <div class="absolute inset-0 bg-purple-500/10 rounded-full blur-lg group-hover:blur-xl transition-all"></div>
+                  <div class="relative w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-xl">
+                    <i class="fas fa-clock text-2xl text-white"></i>
+                  </div>
+                </div>
+                <h4 class="text-white font-bold text-sm mb-1">Time Management</h4>
+                <p class="text-gray-400 text-xs">Efficient delivery</p>
               </div>
-              <h4 class="text-white font-bold mb-2">Time Management</h4>
-              <p class="text-gray-400 text-sm">Efficient project delivery</p>
             </div>
-            <div class="professional-skill-card bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-6 rounded-xl border border-gray-700 hover:border-[var(--primary-color)]/30 transition-all duration-300 text-center group">
-              <div class="text-4xl text-[var(--primary-color)] mb-4 group-hover:scale-110 transition-transform duration-300">
-                <i class="fas fa-comments"></i>
+
+            <!-- Communication -->
+            <div class="professional-skill-card group relative bg-gradient-to-br from-[rgb(40,40,48)] to-[rgb(35,35,42)] p-5 rounded-2xl border border-gray-700/50 hover:border-green-500/60 transition-all duration-300 text-center hover:-translate-y-3 hover:shadow-2xl hover:shadow-green-500/30 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="relative z-10">
+                <div class="relative mb-3">
+                  <div class="absolute inset-0 bg-green-500/10 rounded-full blur-lg group-hover:blur-xl transition-all"></div>
+                  <div class="relative w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-xl">
+                    <i class="fas fa-comments text-2xl text-white"></i>
+                  </div>
+                </div>
+                <h4 class="text-white font-bold text-sm mb-1">Communication</h4>
+                <p class="text-gray-400 text-xs">Clear & effective</p>
               </div>
-              <h4 class="text-white font-bold mb-2">Communication</h4>
-              <p class="text-gray-400 text-sm">Clear and effective communication</p>
             </div>
           </div>
         </div>
@@ -1224,50 +1302,77 @@
     const menuLinks = mobileMenu.querySelectorAll('a');
     let isMenuOpen = false;
 
-    menuToggle.addEventListener('click', () => {
-      isMenuOpen = !isMenuOpen;
-      
-      if (isMenuOpen) {
-        // Open menu animation
-        mobileMenu.classList.remove('hidden');
-        setTimeout(() => {
-          mobileMenu.style.transform = 'translateY(0)';
-          mobileMenu.style.opacity = '1';
-        }, 10);
+    // Toggle menu on hamburger click
+    if (menuToggle) {
+      menuToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        isMenuOpen = !isMenuOpen;
         
-        // Animate hamburger to X
-        line1.style.transform = 'rotate(45deg) translateY(6px)';
-        line2.style.opacity = '0';
-        line3.style.transform = 'rotate(-45deg) translateY(-6px)';
-      } else {
-        // Close menu animation
-        mobileMenu.style.transform = 'translateY(-10px)';
-        mobileMenu.style.opacity = '0';
-        setTimeout(() => {
+        if (isMenuOpen) {
+          // Open menu
+          mobileMenu.classList.remove('hidden');
+          
+          // Animate hamburger to X
+          line1.style.transform = 'rotate(45deg) translateY(6px)';
+          line2.style.opacity = '0';
+          line3.style.transform = 'rotate(-45deg) translateY(-6px)';
+        } else {
+          // Close menu
           mobileMenu.classList.add('hidden');
-        }, 300);
-        
-        // Animate X back to hamburger
-        line1.style.transform = 'rotate(0) translateY(0)';
-        line2.style.opacity = '1';
-        line3.style.transform = 'rotate(0) translateY(0)';
-      }
-    });
+          
+          // Animate X back to hamburger
+          line1.style.transform = 'rotate(0) translateY(0)';
+          line2.style.opacity = '1';
+          line3.style.transform = 'rotate(0) translateY(0)';
+        }
+      });
+    }
 
-    // Close menu when clicking on a link
+    // Handle menu link clicks
     menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        isMenuOpen = false;
-        mobileMenu.style.transform = 'translateY(-10px)';
-        mobileMenu.style.opacity = '0';
-        setTimeout(() => {
-          mobileMenu.classList.add('hidden');
-        }, 300);
+      link.addEventListener('click', (e) => {
+        // Add visual feedback - remove active states from all links
+        menuLinks.forEach(l => {
+          l.classList.remove('active');
+          l.classList.remove('bg-gray-800/50', 'bg-gray-800/30');
+          l.style.borderLeftColor = 'transparent';
+          l.style.backgroundColor = '';
+          const icon = l.querySelector('i');
+          const span = l.querySelector('span');
+          if (icon) {
+            icon.classList.remove('text-[var(--primary-color)]');
+            icon.style.color = '';
+          }
+          if (span) {
+            span.classList.remove('text-[var(--primary-color)]');
+            span.style.color = '';
+          }
+        });
         
-        // Animate X back to hamburger
-        line1.style.transform = 'rotate(0) translateY(0)';
-        line2.style.opacity = '1';
-        line3.style.transform = 'rotate(0) translateY(0)';
+        // Highlight clicked link with background
+        link.classList.add('active');
+        link.style.backgroundColor = 'rgba(55, 65, 81, 0.5)'; // bg-gray-700/50
+        link.style.borderLeftColor = 'var(--primary-color)';
+        const icon = link.querySelector('i');
+        const span = link.querySelector('span');
+        if (icon) {
+          icon.style.color = 'var(--primary-color)';
+        }
+        if (span) {
+          span.style.color = 'var(--primary-color)';
+        }
+        
+        // Close menu after short delay to show the background change
+        setTimeout(() => {
+          isMenuOpen = false;
+          mobileMenu.classList.add('hidden');
+          
+          // Animate X back to hamburger
+          line1.style.transform = 'rotate(0) translateY(0)';
+          line2.style.opacity = '1';
+          line3.style.transform = 'rotate(0) translateY(0)';
+        }, 250);
       });
     });
 
@@ -1288,23 +1393,136 @@
       }
     });
 
-    // Typing Animation
+    // Enhanced Typing Animation with Different Effects
     document.addEventListener('DOMContentLoaded', () => {
       const typedTextElement = document.getElementById("typed-text");
-      const roles = ["Full Stack Developer", "Web Developer", "PHP Developer", "Laravel Expert", "Problem Solver", "Creative Thinker"];
+      const roles = [
+        { text: "Web Developer", animation: "fadeIn" },
+        { text: "Laravel Expert", animation: "fadeIn" },
+        { text: "Problem Solver", animation: "fadeIn" },
+        { text: "Full Stack Developer", animation: "fadeIn" },
+        { text: "PHP Developer", animation: "fadeIn" },
+        { text: "Creative Thinker", animation: "fadeIn" }
+      ];
       let roleIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
       let typeSpeed = 150;
 
+      // Add animation styles dynamically
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideIn {
+          from { transform: translateX(-20px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes bounceIn {
+          0% { transform: scale(0.3); opacity: 0; }
+          50% { transform: scale(1.05); }
+          70% { transform: scale(0.9); }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes zoomIn {
+          from { transform: scale(0); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes flipIn {
+          from { transform: perspective(400px) rotateX(90deg); opacity: 0; }
+          to { transform: perspective(400px) rotateX(0); opacity: 1; }
+        }
+        @keyframes rotateIn {
+          from { transform: rotate(-200deg) scale(0); opacity: 0; }
+          to { transform: rotate(0) scale(1); opacity: 1; }
+        }
+        .text-animate {
+          display: inline-block;
+          animation-duration: 0.6s;
+          animation-fill-mode: both;
+        }
+        @keyframes rotate-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes rotate-reverse {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
+        }
+        @keyframes glow-pulse {
+          0%, 100% { opacity: 0.75; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
+        }
+        @keyframes gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes bounce-gentle {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Add additional image animation styles
+      const imageAnimStyle = document.createElement('style');
+      imageAnimStyle.textContent = `
+        @keyframes rotate-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes rotate-reverse {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
+        }
+        @keyframes glow-pulse {
+          0%, 100% { opacity: 0.75; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
+        }
+        @keyframes gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes bounce-gentle {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+      `;
+      document.head.appendChild(imageAnimStyle);
+
+      function applyAnimation(animationName) {
+        typedTextElement.className = 'text-[var(--primary-color)] font-bold min-w-[180px] inline-block text-animate';
+        typedTextElement.style.animation = `${animationName} 0.6s ease-out`;
+        
+        // Remove animation after it completes
+        setTimeout(() => {
+          typedTextElement.style.animation = '';
+        }, 600);
+      }
+
       function typeWriter() {
         const currentRole = roles[roleIndex];
-        typedTextElement.textContent = currentRole.substring(0, charIndex + (isDeleting ? -1 : 1));
-        charIndex += isDeleting ? -1 : 1;
-        typeSpeed = isDeleting ? 75 : 150;
+        const currentText = currentRole.text;
+        const currentAnimation = currentRole.animation;
+        
+        if (!isDeleting) {
+          typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+        } else {
+          typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+        }
+        
+        typeSpeed = isDeleting ? 50 : 100;
 
-        if (!isDeleting && charIndex === currentRole.length) {
-          setTimeout(() => { isDeleting = true; }, 2000);
+        if (!isDeleting && charIndex === currentText.length) {
+          // Apply the unique animation when text is fully typed
+          applyAnimation(currentAnimation);
+          setTimeout(() => { isDeleting = true; }, 2500);
         } else if (isDeleting && charIndex === 0) {
           isDeleting = false;
           roleIndex = (roleIndex + 1) % roles.length;
@@ -1389,6 +1607,35 @@
       if (statsSection) {
         statsObserver.observe(statsSection);
       }
+
+      // Progress Bar Animation
+      const progressBars = document.querySelectorAll('.progress-bar');
+      
+      const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const bar = entry.target;
+            const percentage = parseInt(bar.getAttribute('data-percentage'));
+            
+            console.log(`Animating progress bar: ${percentage}% → filling ${percentage}% of bar`);
+            
+            // Animate the bar to the target percentage
+            setTimeout(() => {
+              bar.style.width = percentage + '%';
+            }, 100);
+            
+            // Unobserve after animating
+            progressObserver.unobserve(bar);
+          }
+        });
+      }, {
+        threshold: 0.5
+      });
+      
+      // Observe all progress bars
+      progressBars.forEach(bar => {
+        progressObserver.observe(bar);
+      });
 
     // General observer for other elements (one-time animations)
     const observer = new IntersectionObserver((entries, observer) => {

@@ -336,14 +336,14 @@
     }
 
     /* Enhanced Card Styles */
-    .professional-card {
+    .skill-card.professional-card {
       background: rgba(30, 41, 59, 0.6);
       border: 1px solid rgba(59, 130, 246, 0.2);
       backdrop-filter: blur(10px);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .professional-card:hover {
+    .skill-card.professional-card:hover {
       background: rgba(30, 41, 59, 0.8);
       border-color: rgba(59, 130, 246, 0.4);
       transform: translateY(-5px);
@@ -511,20 +511,19 @@
           </div>
         </div>
         <div class="hidden lg:flex items-center space-x-1">
-          <a href="index.html" class="nav-link transition-all duration-300">
+          <a href="index.html" class="nav-link transition-all duration-300" data-page="index">
             <i class="fas fa-home mr-2"></i>Home
           </a>
-          <a href="about.html" class="nav-link active transition-all duration-300">
+          <a href="about.html" class="nav-link active transition-all duration-300" data-page="about">
             <i class="fas fa-user mr-2"></i>About
           </a>
-          <a href="services.html" class="nav-link transition-all duration-300">
+          <a href="services.html" class="nav-link transition-all duration-300" data-page="services">
             <i class="fas fa-cogs mr-2"></i>Services
           </a>
-          <a href="resume.html" class="nav-link transition-all duration-300">
+          <a href="resume.html" class="nav-link transition-all duration-300" data-page="resume">
             <i class="fas fa-file-alt mr-2"></i>Resume
           </a>
-         
-          <a href="contact.html" class="nav-link transition-all duration-300">
+          <a href="contact.html" class="nav-link transition-all duration-300" data-page="contact">
             <i class="fas fa-envelope mr-2"></i>Contact
           </a>
         </div>
@@ -538,24 +537,23 @@
       </div>
       <div id="mobileMenu" class="lg:hidden hidden absolute top-full left-0 right-0 professional-card m-4 rounded-2xl backdrop-blur-lg border border-gray-700">
         <div class="p-6 space-y-2">
-          <a href="index.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="index.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="index">
             <i class="fas fa-home group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Home</span>
           </a>
-          <a href="about.html" class="nav-link active flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group border-l-4 border-[var(--primary-color)]">
+          <a href="about.html" class="nav-link active flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group border-l-4 border-[var(--primary-color)]" data-page="about">
             <i class="fas fa-user text-[var(--primary-color)]"></i>
             <span class="font-medium text-[var(--primary-color)]">About</span>
           </a>
-          <a href="services.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="services.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="services">
             <i class="fas fa-cogs group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Services</span>
           </a>
-          <a href="resume.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="resume.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="resume">
             <i class="fas fa-file-alt group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Resume</span>
           </a>
-         
-          <a href="contact.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent">
+          <a href="contact.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="contact">
             <i class="fas fa-envelope group-hover:text-[var(--primary-color)] transition-colors"></i>
             <span class="font-medium">Contact</span>
           </a>
@@ -650,7 +648,7 @@
           <div class="relative group">
             <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
             <div class="relative">
-              <img src="b.jpg" alt="Arjun Bhusal" class="w-full h-auto rounded-2xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 object-cover transform group-hover:scale-105" />
+              <img src="a.jpg" alt="Arjun Bhusal" class="w-full h-auto rounded-2xl shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 object-cover transform group-hover:scale-105" />
               
               <!-- Enhanced Badge -->
               <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white p-6 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300 group">
@@ -1108,10 +1106,44 @@
     });
 
     menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (isMenuOpen) {
-          menuToggle.click();
+      link.addEventListener('click', (e) => {
+        // Add visual feedback - remove active states from all links
+        menuLinks.forEach(l => {
+          l.classList.remove('active');
+          l.classList.remove('bg-gray-800/50', 'bg-gray-800/30');
+          l.style.borderLeftColor = 'transparent';
+          l.style.backgroundColor = '';
+          const icon = l.querySelector('i');
+          const span = l.querySelector('span');
+          if (icon) {
+            icon.classList.remove('text-[var(--primary-color)]');
+            icon.style.color = '';
+          }
+          if (span) {
+            span.classList.remove('text-[var(--primary-color)]');
+            span.style.color = '';
+          }
+        });
+        
+        // Highlight clicked link with background
+        link.classList.add('active');
+        link.style.backgroundColor = 'rgba(55, 65, 81, 0.5)'; // bg-gray-700/50
+        link.style.borderLeftColor = 'var(--primary-color)';
+        const icon = link.querySelector('i');
+        const span = link.querySelector('span');
+        if (icon) {
+          icon.style.color = 'var(--primary-color)';
         }
+        if (span) {
+          span.style.color = 'var(--primary-color)';
+        }
+        
+        // Close menu after short delay
+        setTimeout(() => {
+          if (isMenuOpen) {
+            menuToggle.click();
+          }
+        }, 250);
       });
     });
 

@@ -67,14 +67,18 @@
       width: 60%;
     }
 
-    .nav-link:hover,
-    .nav-link.active {
+    .nav-link:hover {
       color: var(--text-primary);
       background: transparent;
     }
 
     .nav-link.active {
+      color: var(--primary-color) !important;
       background: transparent;
+    }
+
+    .nav-link.active i {
+      color: var(--primary-color) !important;
     }
 
     /* Mobile Navigation Links */
@@ -310,20 +314,19 @@
 
         <!-- Professional Navigation Links -->
         <div class="hidden lg:flex items-center space-x-1">
-          <a href="index.html" class="nav-link transition-all duration-300">
+          <a href="index.html" class="nav-link transition-all duration-300" data-page="index">
             <i class="fas fa-home mr-2"></i>Home
           </a>
-          <a href="about.html" class="nav-link transition-all duration-300">
+          <a href="about.html" class="nav-link transition-all duration-300" data-page="about">
             <i class="fas fa-user mr-2"></i>About
           </a>
-          <a href="services.html" class="nav-link active transition-all duration-300">
+          <a href="services.html" class="nav-link active transition-all duration-300" data-page="services">
             <i class="fas fa-cogs mr-2"></i>Services
           </a>
-          <a href="resume.html" class="nav-link transition-all duration-300">
+          <a href="resume.html" class="nav-link transition-all duration-300" data-page="resume">
             <i class="fas fa-file-alt mr-2"></i>Resume
           </a>
-       
-          <a href="contact.html" class="nav-link transition-all duration-300">
+          <a href="contact.html" class="nav-link transition-all duration-300" data-page="contact">
             <i class="fas fa-envelope mr-2"></i>Contact
           </a>
         </div>
@@ -339,23 +342,27 @@
       </div>
 
       <!-- Enhanced Mobile Menu -->
-      <div id="mobileMenu" class="lg:hidden hidden absolute top-full left-0 right-0 professional-card m-4 rounded-2xl">
-        <div class="p-6 space-y-4">
-          <a href="index.html" class="nav-link flex items-center space-x-3 p-3 rounded-lg transition-all duration-300">
-            <i class="fas fa-home"></i><span>Home</span>
+      <div id="mobileMenu" class="lg:hidden hidden absolute top-full left-0 right-0 professional-card m-4 rounded-2xl backdrop-blur-lg border border-gray-700">
+        <div class="p-6 space-y-2">
+          <a href="index.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="index">
+            <i class="fas fa-home group-hover:text-[var(--primary-color)] transition-colors"></i>
+            <span class="font-medium">Home</span>
           </a>
-          <a href="about.html" class="nav-link flex items-center space-x-3 p-3 rounded-lg transition-all duration-300">
-            <i class="fas fa-user"></i><span>About</span>
+          <a href="about.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="about">
+            <i class="fas fa-user group-hover:text-[var(--primary-color)] transition-colors"></i>
+            <span class="font-medium">About</span>
           </a>
-          <a href="services.html" class="nav-link active flex items-center space-x-3 p-3 rounded-lg transition-all duration-300">
-            <i class="fas fa-cogs"></i><span>Services</span>
+          <a href="services.html" class="nav-link active flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group border-l-4 border-[var(--primary-color)]" data-page="services">
+            <i class="fas fa-cogs text-[var(--primary-color)]"></i>
+            <span class="font-medium text-[var(--primary-color)]">Services</span>
           </a>
-          <a href="resume.html" class="nav-link flex items-center space-x-3 p-3 rounded-lg transition-all duration-300">
-            <i class="fas fa-file-alt"></i><span>Resume</span>
+          <a href="resume.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="resume">
+            <i class="fas fa-file-alt group-hover:text-[var(--primary-color)] transition-colors"></i>
+            <span class="font-medium">Resume</span>
           </a>
-         
-          <a href="contact.html" class="nav-link flex items-center space-x-3 p-3 rounded-lg transition-all duration-300">
-            <i class="fas fa-envelope"></i><span>Contact</span>
+          <a href="contact.html" class="nav-link flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 group hover:bg-gray-800/30 hover:border-l-4 hover:border-[var(--primary-color)] border-l-4 border-transparent" data-page="contact">
+            <i class="fas fa-envelope group-hover:text-[var(--primary-color)] transition-colors"></i>
+            <span class="font-medium">Contact</span>
           </a>
         </div>
       </div>
@@ -369,7 +376,7 @@
         <!-- Profile Photo -->
         <div class="relative">
           <div class="w-48 h-48 md:w-56 md:h-56 mx-auto overflow-hidden rounded-2xl shadow-2xl border-4 border-blue-500/20">
-            <img src="b.jpg" alt="Arjun Bhusal - Service Provider" class="w-full h-full object-cover object-center transition-all duration-500 hover:scale-105" />
+            <img src="a.jpg" alt="Arjun Bhusal - Service Provider" class="w-full h-full object-cover object-center transition-all duration-500 hover:scale-105" />
           </div>
           <div class="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-xl shadow-lg">
             <div class="text-center">
@@ -789,13 +796,47 @@
     });
 
     menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        isMenuOpen = false;
-        // Reset hamburger animation
-        line1.style.transform = 'rotate(0deg) translate(0px, 0px)';
-        line2.style.opacity = '1';
-        line3.style.transform = 'rotate(0deg) translate(0px, 0px)';
+      link.addEventListener('click', (e) => {
+        // Add visual feedback - remove active states from all links
+        menuLinks.forEach(l => {
+          l.classList.remove('active');
+          l.classList.remove('bg-gray-800/50', 'bg-gray-800/30');
+          l.style.borderLeftColor = 'transparent';
+          l.style.backgroundColor = '';
+          const icon = l.querySelector('i');
+          const span = l.querySelector('span');
+          if (icon) {
+            icon.classList.remove('text-[var(--primary-color)]');
+            icon.style.color = '';
+          }
+          if (span) {
+            span.classList.remove('text-[var(--primary-color)]');
+            span.style.color = '';
+          }
+        });
+        
+        // Highlight clicked link with background
+        link.classList.add('active');
+        link.style.backgroundColor = 'rgba(55, 65, 81, 0.5)'; // bg-gray-700/50
+        link.style.borderLeftColor = 'var(--primary-color)';
+        const icon = link.querySelector('i');
+        const span = link.querySelector('span');
+        if (icon) {
+          icon.style.color = 'var(--primary-color)';
+        }
+        if (span) {
+          span.style.color = 'var(--primary-color)';
+        }
+        
+        // Close menu after short delay
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          isMenuOpen = false;
+          // Reset hamburger animation
+          line1.style.transform = 'rotate(0deg) translate(0px, 0px)';
+          line2.style.opacity = '1';
+          line3.style.transform = 'rotate(0deg) translate(0px, 0px)';
+        }, 250);
       });
     });
 
