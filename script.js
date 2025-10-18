@@ -13,41 +13,71 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMagneticButtons();
 });
 
-// Enhanced Navigation with Glassmorphism
+// Enhanced Navigation with Glassmorphism and Touch Support
 function initializeNavigation() {
-    const nav = document.querySelector('.glass-nav');
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const nav = document.querySelector('.glass-nav, .professional-nav, nav');
+    const mobileMenuButton = document.querySelector('.mobile-menu-button, #mobileMenuBtn');
+    const mobileMenu = document.querySelector('.mobile-menu, #mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-menu a');
 
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+        if (nav) {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
         }
     });
 
-    // Enhanced mobile menu toggle
+    // Enhanced mobile menu toggle with touch support
     if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.classList.toggle('active');
+        // Handle both click and touch events
+        const toggleMenu = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuButton.classList.add('active');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('active');
+            }
             
             // Animate hamburger menu
-            const lines = mobileMenuButton.querySelectorAll('.line');
+            const lines = mobileMenuButton.querySelectorAll('.line, span');
             lines.forEach(line => line.classList.toggle('active'));
-        });
+            
+            // Prevent body scroll when menu is open
+            if (isHidden) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        };
+        
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        mobileMenuButton.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            toggleMenu(e);
+        }, { passive: false });
 
         // Close mobile menu when clicking on links
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            const closeMenu = (e) => {
                 mobileMenu.classList.add('hidden');
                 mobileMenuButton.classList.remove('active');
-                const lines = mobileMenuButton.querySelectorAll('.line');
+                document.body.style.overflow = '';
+                const lines = mobileMenuButton.querySelectorAll('.line, span');
                 lines.forEach(line => line.classList.remove('active'));
-            });
+            };
+            
+            link.addEventListener('click', closeMenu);
+            link.addEventListener('touchend', closeMenu);
         });
 
         // Close mobile menu when clicking outside
@@ -55,8 +85,43 @@ function initializeNavigation() {
             if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                 mobileMenu.classList.add('hidden');
                 mobileMenuButton.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Add swipe gesture support for mobile menu
+    if ('ontouchstart' in window && mobileMenu) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        mobileMenu.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        mobileMenu.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swiped left - close menu
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
     }
 }
 
@@ -96,12 +161,23 @@ function initializeAnimations() {
     });
 }
 
-// Enhanced Particle System
+// Enhanced Particle System with Responsive Support
 function initializeParticles() {
     const particleContainer = document.querySelector('.particles');
     if (!particleContainer) return;
+    
+    // Check if mobile device
+    const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+    
+    // Adjust particle count based on device
+    const particleInterval = isMobile ? 600 : isTablet ? 400 : 200;
+    const initialParticles = isMobile ? 5 : isTablet ? 10 : 20;
 
     function createParticle() {
+        // Don't create particles on mobile to save performance
+        if (window.innerWidth < 768) return;
+        
         const particle = document.createElement('div');
         particle.className = 'particle';
         
@@ -109,7 +185,7 @@ function initializeParticles() {
         const startX = Math.random() * window.innerWidth;
         const endX = startX + (Math.random() - 0.5) * 200;
         const duration = 8 + Math.random() * 8;
-        const size = 2 + Math.random() * 4;
+        const size = (isMobile ? 1 : 2) + Math.random() * (isMobile ? 2 : 4);
         const opacity = 0.3 + Math.random() * 0.7;
         
         particle.style.left = startX + 'px';
@@ -137,13 +213,18 @@ function initializeParticles() {
         }, duration * 1000);
     }
 
-    // Create particles continuously
-    setInterval(createParticle, 200);
+    // Create particles continuously with device-appropriate interval
+    const particleIntervalId = setInterval(createParticle, particleInterval);
     
-    // Initial burst of particles
-    for (let i = 0; i < 20; i++) {
+    // Initial burst of particles (device-appropriate amount)
+    for (let i = 0; i < initialParticles; i++) {
         setTimeout(createParticle, i * 100);
     }
+    
+    // Clean up on page unload
+    window.addEventListener('beforeunload', () => {
+        clearInterval(particleIntervalId);
+    });
 }
 
 // Enhanced Smooth Scrolling
@@ -399,17 +480,75 @@ window.addEventListener('scroll', () => {
 });
 
 // Resize handler for responsive adjustments
+let resizeTimer;
 window.addEventListener('resize', () => {
+    // Debounce resize events for better performance
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        handleResponsiveAdjustments();
+    }, 250);
+});
+
+// Handle responsive adjustments based on screen size
+function handleResponsiveAdjustments() {
+    const screenWidth = window.innerWidth;
+    const isMobile = screenWidth < 768;
+    const isTablet = screenWidth >= 768 && screenWidth < 1024;
+    const isDesktop = screenWidth >= 1024;
+    
     // Recalculate particle system
     const particles = document.querySelectorAll('.particle');
     particles.forEach(particle => {
-        if (window.innerWidth < 768) {
-            particle.style.display = 'none';
+        if (isMobile) {
+            particle.style.display = 'none'; // Hide particles on mobile for performance
         } else {
             particle.style.display = 'block';
+            // Reduce particle count on tablet
+            if (isTablet) {
+                const particleIndex = Array.from(particles).indexOf(particle);
+                if (particleIndex % 2 === 0) {
+                    particle.style.display = 'none';
+                }
+            }
         }
     });
-});
+    
+    // Adjust animations based on device
+    const animatedElements = document.querySelectorAll('[class*="animate"]');
+    if (isMobile && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        animatedElements.forEach(el => {
+            el.style.animation = 'none';
+        });
+    }
+    
+    // Adjust typing speed on mobile
+    const typingElement = document.querySelector('.typing-animation');
+    if (typingElement && isMobile) {
+        typingElement.style.animationDuration = '1s'; // Faster on mobile
+    }
+    
+    // Adjust hover effects for touch devices
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+        // Disable hover effects on touch devices
+        const hoverElements = document.querySelectorAll('[class*="hover:"]');
+        hoverElements.forEach(el => {
+            el.addEventListener('touchstart', function(e) {
+                this.classList.add('touch-active');
+            });
+            el.addEventListener('touchend', function(e) {
+                setTimeout(() => {
+                    this.classList.remove('touch-active');
+                }, 300);
+            });
+        });
+    }
+    
+    console.log(`Responsive adjustments applied for ${isMobile ? 'mobile' : isTablet ? 'tablet' : 'desktop'} view`);
+}
+
+// Call on page load
+handleResponsiveAdjustments();
 
 // Initialize performance monitoring
 function initializePerformanceMonitoring() {

@@ -236,6 +236,100 @@
       object-fit: cover;
       border: 4px solid rgba(255, 255, 255, 0.1);
     }
+
+    .professional-card {
+      background: linear-gradient(145deg, var(--card-bg) 0%, #334155 100%);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(20px);
+      transition: all 0.4s ease;
+    }
+
+    .social-link {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      transition: left 0.3s ease;
+      z-index: -1;
+    }
+
+    .social-link:hover::before {
+      left: 0;
+    }
+
+    .social-link:hover {
+      color: white;
+      transform: translateY(-3px) scale(1.1);
+      border-color: var(--secondary-color);
+    }
+
+    .professional-footer {
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .professional-btn {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+      border: none;
+      color: white;
+      font-weight: 600;
+      transition: all 0.4s ease;
+    }
+
+    .professional-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+    }
+
+    .professional-gradient-text {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease-in-out infinite;
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .professional-icon {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      transition: all 0.4s ease;
+    }
+
+    .professional-icon:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .logo-container {
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -527,6 +621,55 @@
     </div>
   </section>
 
+  <!-- Map Section -->
+  <section class="py-20 px-4 md:px-12 bg-[rgb(40,40,48)] relative overflow-hidden">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 font-display fade-in-up">
+          Find <span class="text-[var(--primary-color)]">Me Here</span>
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] mx-auto mb-6"></div>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto fade-in-up">
+          📍 Kawasoti-9, Nawalpur, Nepal
+        </p>
+      </div>
+      
+      <!-- Map Container -->
+      <div class="fade-in-up">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[var(--primary-color)]/20 hover:border-[var(--primary-color)]/40 transition-all duration-300">
+          <!-- Google Maps Embed -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.89384515486!2d84.05678577910156!3d27.64953800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb2b7c93f34b%3A0x5a6c0d0e7c0c8c9f!2sKawasoti%2C%20Nepal!5e0!3m2!1sen!2snp!4v1234567890123!5m2!1sen!2snp" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="grayscale hover:grayscale-0 transition-all duration-500">
+          </iframe>
+          
+          <!-- Overlay Info Card -->
+          <div class="absolute bottom-6 left-6 right-6 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] p-6 rounded-xl shadow-lg backdrop-blur-sm">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-map-marker-alt text-[var(--primary-color)] text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-bold text-lg mb-1">My Location</h3>
+                <p class="text-white/90 text-sm">Kawasoti-9, Nawalpur, Nepal</p>
+                <a href="https://maps.google.com/?q=Kawasoti,Nepal" target="_blank" class="inline-flex items-center text-white text-sm mt-2 hover:underline">
+                  <span>Get Directions</span>
+                  <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Enhanced Footer -->
 <footer class="professional-footer py-16 px-6 relative overflow-hidden">
     <!-- Footer Background Pattern -->
@@ -605,19 +748,19 @@
             <i class="fas fa-link mr-2"></i>Quick Links
           </h4>
           <div class="space-y-3">
-            <a href="#home" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
+            <a href="index.html" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
               <i class="fas fa-home mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>Home</span>
             </a>
-            <a href="#about" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
+            <a href="about.html" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
               <i class="fas fa-user mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>About</span>
             </a>
-            <a href="#services" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
+            <a href="services.html" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
               <i class="fas fa-cogs mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>Services</span>
             </a>
-            <a href="#resume" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
+            <a href="resume.html" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
               <i class="fas fa-file-alt mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>Resume</span>
             </a>
@@ -658,20 +801,10 @@
 
       <!-- Enhanced Bottom Section -->
       <div class="border-t border-gray-700 mt-16 pt-8 fade-in-up" style="animation-delay: 0.8s;">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="flex items-center mb-4 md:mb-0">
-            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mr-3">
-              <i class="fas fa-heart text-white text-sm"></i>
-            </div>
-            <p class="text-gray-400">
-              © 2025 Arjun Bhusal. Made with <span class="text-red-400">♥</span> in Nepal
-            </p>
-          </div>
-          <div class="flex space-x-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
-            <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
-
-          </div>
+        <div class="flex justify-center items-center">
+          <p class="text-gray-400 text-center">
+            © 2025 Arjun Bhusal. Made with <span class="text-red-400">♥</span> in Nepal
+          </p>
         </div>
       </div>
     </div>
@@ -909,6 +1042,14 @@ Reply to: ${email}`;
       }
     });
   </script>
+  <style>
+     .professional-footer {
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      border-top: 1px solid var(--border-color);
+
+      
+    }
+  </style>
 </body>
 
 </html>

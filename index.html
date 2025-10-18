@@ -264,8 +264,64 @@
       100% { transform: translateY(0px); }
     }
 
+    /* Slow Spin Animation */
+    .animate-spin-slow {
+      animation: spin-slow 8s linear infinite;
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Typing Cursor */
+    .typing-cursor {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* Left to Right Animation */
+    .hero-animate {
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .hero-animate-right {
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideInRight 1s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
     .hero-section {
-      background: linear-gradient(135deg, rgb(34,34,41) 0%, rgb(25,25,31) 100%);
+      background: linear-gradient(135deg, rgb(15,23,42) 0%, rgb(30,41,59) 50%, rgb(15,23,42) 100%);
       position: relative;
       overflow: hidden;
     }
@@ -419,92 +475,174 @@
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="hero-section min-h-screen flex flex-col md:flex-row justify-between items-center px-4 md:px-12 overflow-hidden relative pt-20">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-20 left-20 w-32 h-32 border-2 border-[var(--primary-color)] rounded-full animate-pulse"></div>
-      <div class="absolute bottom-32 right-32 w-24 h-24 border border-[var(--primary-color)] rounded-full floating"></div>
-      <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-[var(--primary-color)] rounded-full opacity-30 floating" style="animation-delay: -1s;"></div>
-      <div class="absolute top-1/3 right-1/3 w-20 h-20 border border-[var(--primary-color)] rounded-full opacity-20 floating" style="animation-delay: -2s;"></div>
+  <!-- Modern Hero Section -->
+  <section id="home" class="hero-section min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-12 relative overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[rgb(15,23,42)] via-[rgb(30,41,59)] to-[rgb(15,23,42)]">
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-[var(--primary-color)] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-[var(--secondary-color)] rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 left-1/2 w-72 h-72 bg-[var(--accent-color)] rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 4s;"></div>
+      </div>
     </div>
-    <div class="hero-content w-full md:w-1/2 animate__animated animate__fadeInLeft animate__delay-1s mb-10 md:mb-0 relative z-10">
-      <div class="space-y-6">
-        <div class="space-y-2">
-          <h3 class="text-[var(--primary-color)] text-2xl font-bold tracking-wider uppercase">Hello There!</h3>
-          <div class="w-20 h-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full"></div>
-        </div>
-        <div class="space-y-4">
-          <h1 class="text-white text-5xl md:text-6xl font-bold leading-tight font-display">
-            I'm <span class="text-[var(--primary-color)] relative inline-block">
+
+    <!-- Main Content Container -->
+    <div class="max-w-7xl mx-auto w-full relative z-10 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Text Content -->
+        <div class="hero-content text-center lg:text-left order-2 lg:order-1 space-y-8">
+          
+          <!-- Greeting Badge -->
+          <div class="hero-animate inline-flex items-center space-x-2 px-4 sm:px-6 py-3 sm:py-4 bg-white/5 backdrop-blur-sm border border-[var(--primary-color)]/30 rounded-full" style="animation-delay: 0.1s;">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary-color)] opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--primary-color)]"></span>
+            </span>
+            <span class="text-[var(--primary-color)] text-xs sm:text-sm font-semibold">Available for Work</span>
+          </div>
+
+          <!-- Main Heading -->
+          <div class="space-y-4">
+            <div class="hero-animate" style="animation-delay: 0.2s;">
+              <h3 class="text-white text-2xl sm:text-3xl md:text-4xl font-bold leading-tight font-display">Hello, I'm</h3>
+            </div>
+            
+            <!-- Typing Effect -->
+             <div class="space-y-4 hero-animate" style="animation-delay: 0.3s;">
+          <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-tight font-display">
+            <span class="text-[var(--primary-color)] relative inline-block">
               Arjun Bhusal
               <div class="absolute -bottom-2 left-0 w-full h-1 bg-[var(--primary-color)] animate-pulse rounded-full"></div>
             </span>
           </h1>
           <div class="mt-6">
-            <h2 class="text-white text-2xl md:text-3xl font-light flex items-center">
-              <span id="typed-text" class="text-[var(--primary-color)] font-semibold min-w-[200px] inline-block">Web Developer</span>
+            <h2 class="text-white text-xl sm:text-2xl md:text-3xl font-light flex items-center justify-center lg:justify-start">
+              <span id="typed-text" class="text-[var(--primary-color)] font-semibold min-w-[150px] sm:min-w-[200px] inline-block">Web Developer</span>
               <span class="typing-cursor">|</span>
             </h2>
           </div>
         </div>
-        <p class="text-gray-300 text-lg leading-relaxed max-w-lg">
-          A passionate <span class="text-[var(--primary-color)] font-semibold">web developer</span> specializing in crafting beautiful, functional digital experiences. I transform creative ideas into stunning, responsive websites that deliver exceptional user experiences and drive business growth.
-        </p>
-        <div class="flex flex-wrap items-center gap-6 mt-8">
-          <a href="#projects" class="btn-enhanced bg-[var(--primary-color)] px-8 py-4 rounded-xl text-white text-lg font-semibold hover:bg-[var(--secondary-color)] transition-all duration-300 inline-flex items-center group">
-            <span>View My Work</span>
-            <svg class="ml-3 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-          <a href="contact.html" class="btn-enhanced bg-transparent border-2 border-[var(--primary-color)] px-8 py-4 rounded-xl text-white text-lg font-semibold hover:bg-[var(--primary-color)] transition-all duration-300 inline-flex items-center group">
-            <span>Hire Me</span>
-            <svg class="ml-3 w-5 h-5 transform group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-            </svg>
-          </a>
+          </div>
+
+          <!-- Description -->
+          <p class="hero-animate text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 px-4 sm:px-0" style="animation-delay: 0.4s;">
+            Passionate <span class="text-[var(--primary-color)] font-semibold">Full-Stack Developer</span> crafting beautiful, functional digital experiences. Let's build something amazing together! 🚀
+          </p>
+
+          <!-- Stats Cards -->
+          <div class="hero-animate grid grid-cols-3 gap-2 sm:gap-4 max-w-lg mx-auto lg:mx-0 px-4 sm:px-0" style="animation-delay: 0.5s;">
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl p-2 sm:p-4 text-center hover:bg-white/10 transition-all">
+              <div class="text-lg sm:text-xl md:text-2xl font-bold text-[var(--primary-color)]">2+</div>
+              <div class="text-[10px] sm:text-xs text-gray-400 mt-1">Years Exp</div>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl p-2 sm:p-4 text-center hover:bg-white/10 transition-all">
+              <div class="text-lg sm:text-xl md:text-2xl font-bold text-[var(--secondary-color)]">15+</div>
+              <div class="text-[10px] sm:text-xs text-gray-400 mt-1">Projects</div>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl p-2 sm:p-4 text-center hover:bg-white/10 transition-all">
+              <div class="text-lg sm:text-xl md:text-2xl font-bold text-[var(--accent-color)]">10+</div>
+              <div class="text-[10px] sm:text-xs text-gray-400 mt-1">Clients</div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="hero-animate flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 px-4 sm:px-0" style="animation-delay: 0.6s;">
+            <a href="#projects" class="w-full sm:w-auto group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white text-sm sm:text-base font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-[var(--primary-color)]/50 hover:scale-105">
+              <span class="relative z-10 flex items-center justify-center">
+                <i class="fas fa-briefcase mr-2"></i>
+                View My Work
+                <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </span>
+            </a>
+            
+            <a href="contact.html" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-[var(--primary-color)] text-white text-sm sm:text-base font-semibold rounded-xl transition-all duration-300 hover:bg-[var(--primary-color)] hover:scale-105 flex items-center justify-center">
+              <i class="fas fa-envelope mr-2"></i>
+              Let's Talk
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="hero-animate flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 px-4 sm:px-0" style="animation-delay: 0.7s;">
+            <span class="text-gray-400 text-xs sm:text-sm font-medium">Follow me:</span>
+            <div class="flex space-x-2 sm:space-x-3">
+              <a href="https://www.linkedin.com/in/arjun-bhusal-806506341" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-[var(--primary-color)] hover:border-[var(--primary-color)] transition-all hover:scale-110" target="_blank">
+                <i class="fab fa-linkedin-in text-sm sm:text-base text-gray-400 hover:text-white"></i>
+              </a>
+              <a href="https://github.com/arjunprasadbhusal" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-[var(--primary-color)] hover:border-[var(--primary-color)] transition-all hover:scale-110" target="_blank">
+                <i class="fab fa-github text-sm sm:text-base text-gray-400 hover:text-white"></i>
+              </a>
+              <a href="https://www.facebook.com/arjun.bhusal.50767" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-[var(--primary-color)] hover:border-[var(--primary-color)] transition-all hover:scale-110" target="_blank">
+                <i class="fab fa-facebook-f text-sm sm:text-base text-gray-400 hover:text-white"></i>
+              </a>
+              <a href="https://www.instagram.com/arjun_bhusall" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-[var(--primary-color)] hover:border-[var(--primary-color)] transition-all hover:scale-110" target="_blank">
+                <i class="fab fa-instagram text-sm sm:text-base text-gray-400 hover:text-white"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="flex items-center space-x-6 mt-10">
-          <span class="text-gray-400 text-sm font-medium">Connect with me:</span>
-          <div class="flex space-x-4">
-            <a href="https://www.linkedin.com/in/arjun-bhusal-806506341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link group" target="_blank">
-              <i class="fab fa-linkedin-in text-lg group-hover:text-white transition-colors"></i>
-            </a>
-            <a href="https://github.com/arjunprasadbhusal" class="social-link group" target="_blank">
-              <i class="fab fa-github text-lg group-hover:text-white transition-colors"></i>
-            </a>
-            <a href="https://www.facebook.com/arjun.bhusal.50767" class="social-link group" target="_blank">
-              <i class="fab fa-facebook-f text-lg group-hover:text-white transition-colors"></i>
-            </a>
-            <a href="https://www.instagram.com/arjun_bhusall?igsh=MTV4aWJodmJiYTJoaA==" class="social-link group" target="_blank">
-              <i class="fab fa-instagram text-lg group-hover:text-white transition-colors"></i>
-            </a>
+
+        <!-- Right: Image Section -->
+        <div class="hero-content order-1 lg:order-2 flex justify-center items-center hero-animate-right">
+          <div class="relative">
+            <!-- Glowing Background -->
+            <div class="absolute inset-0 flex justify-center items-center">
+              <div class="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-full blur-3xl animate-pulse"></div>
+            </div>
+
+            <!-- Image Container -->
+            <div class="relative z-10">
+              <div class="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto">
+                <!-- Animated Border -->
+                <div class="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] p-1 animate-spin-slow">
+                  <div class="w-full h-full bg-[var(--dark-bg)] rounded-2xl sm:rounded-3xl"></div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="absolute inset-2 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+                  <img src="b.jpg" alt="Arjun Bhusal - Web Developer" class="w-full h-full object-cover object-center transition-all duration-500 hover:scale-110" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--primary-color)]/20 to-transparent opacity-0 hover:opacity-100 transition-opacity"></div>
+                </div>
+
+                <!-- Floating Tech Icons -->
+                <div class="absolute -left-4 sm:-left-6 top-1/4 hidden sm:block">
+                  <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl flex items-center justify-center floating hover:scale-110 transition-transform">
+                    <i class="fab fa-laravel text-red-500 text-lg sm:text-xl"></i>
+                  </div>
+                </div>
+                <div class="absolute -right-4 sm:-right-6 top-1/3 hidden sm:block">
+                  <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl flex items-center justify-center floating hover:scale-110 transition-transform" style="animation-delay: -1s;">
+                    <i class="fab fa-react text-cyan-400 text-lg sm:text-xl"></i>
+                  </div>
+                </div>
+                <div class="absolute -left-4 sm:-left-6 bottom-1/4 hidden sm:block">
+                  <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl flex items-center justify-center floating hover:scale-110 transition-transform" style="animation-delay: -2s;">
+                    <i class="fab fa-js text-yellow-400 text-lg sm:text-xl"></i>
+                  </div>
+                </div>
+                <div class="absolute -right-4 sm:-right-6 bottom-1/3 hidden sm:block">
+                  <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl flex items-center justify-center floating hover:scale-110 transition-transform" style="animation-delay: -3s;">
+                    <i class="fab fa-node text-green-500 text-lg sm:text-xl"></i>
+                  </div>
+                </div>
+
+                <!-- Laravel Badge -->
+                <div class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg border-2 sm:border-4 border-white/20 hover:scale-110 transition-transform">
+                  <i class="fab fa-laravel text-white text-base sm:text-lg"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="hero-content w-full md:w-1/2 flex justify-center items-center animate__animated animate__fadeInRight animate__delay-1s relative">
-      <div class="absolute inset-0 flex justify-center items-center">
-        <div class="w-72 h-72 md:w-80 md:h-80 border-4 border-[var(--primary-color)]/20 rounded-full animate-pulse"></div>
-        <div class="absolute w-80 h-80 md:w-96 md:h-96 border border-[var(--primary-color)]/10 rounded-full floating"></div>
-      </div>
-      <div class="relative z-10 flex justify-center items-center">
-        <div class="relative">
-          <div class="w-72 h-72 md:w-80 md:h-80 mx-auto overflow-hidden rounded-2xl shadow-2xl">
-            <img src="b.jpg" alt="Arjun Bhusal - Web Developer" class="w-full h-full object-cover object-center floating cursor-pointer transition-all duration-500 hover:scale-105" />
-          </div>
-          <div class="absolute -bottom-4 -right-4 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-3 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-            <div class="text-center">
-              <div class="text-2xl font-bold">2+</div>
-              <div class="text-xs font-medium">Years Exp</div>
-            </div>
-          </div>
-          <div class="absolute -top-4 -left-4 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--primary-color)] text-white px-4 py-2 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-            <div class="text-center">
-              <div class="text-sm font-bold">15+</div>
-              <div class="text-xs">Projects</div>
-            </div>
-          </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:flex flex-col items-center space-y-2 cursor-pointer group">
+        <span class="text-gray-400 text-xs uppercase tracking-wider group-hover:text-[var(--primary-color)] transition-colors">Scroll</span>
+        <div class="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center p-2 group-hover:border-[var(--primary-color)] transition-colors">
+          <div class="w-1 h-2 bg-[var(--primary-color)] rounded-full animate-bounce"></div>
         </div>
       </div>
     </div>
@@ -807,40 +945,7 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 px-4 md:px-12 bg-[rgb(40,40,48)]">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-[var(--primary-color)] text-3xl md:text-4xl font-bold mb-4 font-display animate__animated animate__fadeInDown">ABOUT ME</h2>
-        <div class="w-20 h-1 bg-[var(--primary-color)] mx-auto mb-6 animate__animated animate__fadeInDown"></div>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-          Passionate about creating digital solutions that make a difference
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="animate__animated animate__fadeInLeft">
-          <img src="a.jpg" alt="About Arjun" class="w-full h-auto rounded-lg shadow-lg transition duration-500 hover:shadow-xl hover:shadow-[var(--primary-color)]/20" />
-        </div>
-        <div class="animate__animated animate__fadeInRight">
-          <h3 class="text-2xl font-bold text-white mb-4 font-display">Who am I?</h3>
-          <p class="text-gray-300 mb-6 text-lg text-justify">
-            I’m Arjun Bhusal, a dedicated web developer from Nepal with over 2 years of hands-on experience crafting modern, responsive websites and dynamic web applications. While my expertise shines in front-end development, I also bring solid back-end skills to deliver seamless, full-stack solutions. Passionate about clean code and user-centric design, I strive to create digital experiences that are both visually stunning and highly functional.
-          </p>
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <div>
-              <p class="text-gray-400"><span class="text-[var(--primary-color)] font-semibold">Name:</span> Arjun Bhusal</p>
-              <p class="text-gray-400"><span class="text-[var(--primary-color)] font-semibold">Email:</span> arjun.bhusal@example.com</p>
-            </div>
-            <div>
-              <p class="text-gray-400"><span class="text-[var(--primary-color)] font-semibold">From:</span> Kawasoti-9, Nawalpur, Nepal</p>
-              <p class="text-gray-400"><span class="text-[var(--primary-color)] font-semibold">Phone:</span> +977 9806922371</p>
-            </div>
-          </div>
-          <a href="resume.pdf" download="Arjun_Bhusal_Resume.pdf" class="btn-enhanced bg-[var(--primary-color)] px-6 py-2 rounded-lg text-white text-lg font-semibold inline-block hover:bg-[var(--secondary-color)] transition duration-300 hover:scale-105">Download CV</a>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- Projects Section -->
   <section id="projects" class="py-20 px-4 md:px-12 bg-[rgb(34,34,41)] relative overflow-hidden">
@@ -887,7 +992,7 @@
         </div>
         <div class="project-card bg-[rgb(40,40,48)] rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary-color)]/30 hover:transform hover:scale-105 group">
           <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" alt="Car Rental System" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <img src="carrental.jpg" alt="Car Rental System" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
               <div class="flex space-x-2">
@@ -917,7 +1022,7 @@
         </div>
         <div class="project-card bg-[rgb(40,40,48)] rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary-color)]/30 hover:transform hover:scale-105 group">
           <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" alt="Bubble Best" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <img src="bubblebest.png" alt="Bubble Best" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
               <div class="flex space-x-2">
@@ -954,7 +1059,7 @@
         <!-- Project 4: LICT Campus Website -->
         <div class="project-card bg-[rgb(40,40,48)] rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary-color)]/30 hover:transform hover:scale-105 group">
           <div class="relative overflow-hidden">
-            <img src="https://via.placeholder.com/400x250?text=LICT+Campus+Website" alt="LICT Campus Website" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+            <img src="lict.png" alt="LICT Campus Website" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div class="flex gap-2">
@@ -974,7 +1079,7 @@
               <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-medium border border-red-500/30">Laravel</span>
               <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-medium border border-green-500/30">PHP</span>
               <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">MySQL</span>
-              <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-medium border border-purple-500/30">Bootstrap</span>
+              <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-medium border border-purple-500/30">tailwind css</span>
             </div>
           </div>
         </div>
@@ -982,7 +1087,7 @@
         <!-- Project 5: Portfolio Website -->
         <div class="project-card bg-[rgb(40,40,48)] rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary-color)]/30 hover:transform hover:scale-105 group">
           <div class="relative overflow-hidden">
-            <img src="https://via.placeholder.com/400x250?text=Portfolio+Website" alt="Portfolio Website" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+            <img src="portfolio.png" alt="Portfolio Website" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div class="flex gap-2">
@@ -1040,9 +1145,9 @@
             "Arjun delivered an exceptional ecommerce website that exceeded our expectations. His attention to detail and technical expertise made our project a huge success."
           </p>
           <div class="flex items-center">
-            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b17c?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80" alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-[var(--primary-color)]" />
+            <img src="pradip.jpg" alt="Pradip" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-[var(--primary-color)]" />
             <div>
-              <h4 class="text-white font-semibold">Sarah Johnson</h4>
+              <h4 class="text-white font-semibold">Pradip Khanal</h4>
               <p class="text-gray-400 text-sm">E-commerce Business Owner</p>
             </div>
           </div>
@@ -1055,9 +1160,9 @@
             "Working with Arjun was a fantastic experience. He understood our requirements perfectly and delivered a clean, modern website that our users love."
           </p>
           <div class="flex items-center">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80" alt="Mike Chen" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-[var(--primary-color)]" />
+            <img src="prabesh.jpg" alt="Prabesh" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-[var(--primary-color)]" />
             <div>
-              <h4 class="text-white font-semibold">Mike Chen</h4>
+              <h4 class="text-white font-semibold">Prabesh Acharya</h4>
               <p class="text-gray-400 text-sm">Startup Founder</p>
             </div>
           </div>
@@ -1070,9 +1175,9 @@
             "Arjun's expertise in modern web technologies helped us build our car rental system perfectly. Highly recommended for any web development project."
           </p>
           <div class="flex items-center">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80" alt="Amanda Rodriguez" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-[var(--primary-color)]" />
+            <img src="dashrath.jpg" alt="Dashrath" class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-[var(--primary-color)]" />
             <div>
-              <h4 class="text-white font-semibold">Amanda Rodriguez</h4>
+              <h4 class="text-white font-semibold">Dashrath Silwal</h4>
               <p class="text-gray-400 text-sm">Project Manager</p>
             </div>
           </div>
@@ -1219,19 +1324,19 @@
               <i class="fas fa-home mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>Home</span>
             </a>
-            <a href="#about" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
+            <a href="about.html" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
               <i class="fas fa-user mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>About</span>
             </a>
-            <a href="#services" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
+            <a href="services.html" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
               <i class="fas fa-cogs mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>Services</span>
             </a>
-            <a href="#resume" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
+            <a href="resume.html" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
               <i class="fas fa-file-alt mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>Resume</span>
             </a>
-            <a href="#contact" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
+            <a href="contact.html" class="text-gray-400 hover:text-blue-400 transition-colors flex items-center group">
               <i class="fas fa-envelope mr-3 text-blue-500 group-hover:scale-110 transition-transform"></i>
               <span>Contact</span>
             </a>
@@ -1268,20 +1373,10 @@
 
       <!-- Enhanced Bottom Section -->
       <div class="border-t border-gray-700 mt-16 pt-8 fade-in-up" style="animation-delay: 0.8s;">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="flex items-center mb-4 md:mb-0">
-            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mr-3">
-              <i class="fas fa-heart text-white text-sm"></i>
-            </div>
-            <p class="text-gray-400">
-              © 2025 Arjun Bhusal. Made with <span class="text-red-400">♥</span> in Nepal
-            </p>
-          </div>
-          <div class="flex space-x-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
-            <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
-
-          </div>
+        <div class="flex justify-center items-center">
+          <p class="text-gray-400 text-center">
+            © 2025 Arjun Bhusal. Made with <span class="text-red-400">♥</span> in Nepal
+          </p>
         </div>
       </div>
     </div>
